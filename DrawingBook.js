@@ -6,33 +6,16 @@
 // p - number of pages
 
 pageFinder = (n, p) => {
-  let lowest = 0;
-  let frontCount = 0;
-  let backCount = 0;
-  for (let i = 1; i < n; i++) {
-    if (i == p) {
-      return frontCount;
-    } else {
-      frontCount++;
-    }
-  }
+  // let's make an array = to that of the book.
+  let turns = Math.floor(p / 2);
+  console.log(turns);
 
-  for (let i = n; i > 0; i--) {
-    if (i == p) {
-      return backCount;
-    } else {
-      backCount++;
-    }
-  }
-  if (frontCount < backCount) {
-    lowest = frontCount;
-  } else {
-    lowest = backCount;
-  }
-  return lowest;
+  let total = Math.floor(n / 2);
+  console.log(total);
+  return Math.min(turns, total - turns);
 };
 
-// console.log(pageFinder(6, 2));
-console.log(pageFinder(5, 4));
+console.log(pageFinder(6, 2));
+// console.log(pageFinder(5, 4));
 
 // expected output: 1
